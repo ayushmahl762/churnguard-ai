@@ -15,34 +15,34 @@ The diagram below outlines how raw data moves through cleaning, feature engineer
 
 ```mermaid
 flowchart TD
-    subgraph Input Data
+    subgraph input_data ["Input Data"]
         A[customers.csv] & B[orders.csv] & C[monthly_revenue.csv] & D[product_summary.csv]
     end
 
-    subgraph Pipeline Processing
+    subgraph pipeline_processing ["Pipeline Processing"]
         E[preprocessor.py] -->|Clean & Impute| F[(churnguard.db)]
         F --> G[engineering.py]
         G -->|RFM & Risk Features| H[trainer.py]
     end
 
-    subgraph ML Pipeline
+    subgraph ml_pipeline ["ML Pipeline"]
         H -->|Benchmark: LR vs RF vs XGBoost| I[Best Model Selection]
         I -->|1. F2 Threshold Optimization| J[churn_model.pkl]
         I -->|2. SHAP Explainability| K[shap_importance]
         J & K -->|Batch Predictions| L[(SQLite Tables)]
     end
 
-    subgraph Delivery & Stakeholders
+    subgraph delivery_stakeholders ["Delivery & Stakeholders"]
         L --> M[export_for_bi.py]
         M -->|CSV Exports| N[Power BI Dashboard]
         L --> O[insight_generator.py]
         O -->|Google Gemini API| P[llm_executive_summary.md]
     end
 
-    style Input Data fill:#f9f,stroke:#333,stroke-width:2px
-    style Pipeline Processing fill:#bbf,stroke:#333,stroke-width:2px
-    style ML Pipeline fill:#fbf,stroke:#333,stroke-width:2px
-    style Delivery & Stakeholders fill:#bfb,stroke:#333,stroke-width:2px
+    style input_data fill:#f9f,stroke:#333,stroke-width:2px
+    style pipeline_processing fill:#bbf,stroke:#333,stroke-width:2px
+    style ml_pipeline fill:#fbf,stroke:#333,stroke-width:2px
+    style delivery_stakeholders fill:#bfb,stroke:#333,stroke-width:2px
 ```
 
 ---
