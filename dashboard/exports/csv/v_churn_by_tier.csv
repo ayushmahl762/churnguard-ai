@@ -1,0 +1,5 @@
+membership_tier,customers,churned,churn_rate_pct,avg_ltv_usd
+Gold,1177,116,9.86,1863.59
+Free,4443,423,9.52,1393.21
+Platinum,644,53,8.23,2600.64
+Silver,1736,123,7.09,1388.75

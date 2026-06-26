@@ -1,0 +1,2 @@
+total_customers,total_churned,churn_rate_pct,avg_ltv_usd,lost_revenue_usd,retained_revenue_usd
+8000,715,8.94,1558.64,871198.32,11597940.48
